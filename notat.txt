@@ -1,0 +1,15 @@
+Hva er kobling mellom building og apartment?
+- apartments kobles til en building
+- en building inneholder data som kan være relevant for en apartments pris
+
+Hvilke parametere er relevante for prisen?
+- Finne alle måltall for relevans og kjøre all dataen gjennom
+- Hva gjør man med nan-verdiene? Står info i notebooken.
+- Forslag: location, 
+
+Kanskje deale med dataen i to ulike bolker? low-end high-end
+
+Struktur:
+- gjøre analyse og henting av metadata i en klasse og selve predictionen i en annen klasse
+
+Vi leverer en csv fil med alle resultatene
