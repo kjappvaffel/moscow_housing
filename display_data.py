@@ -56,3 +56,14 @@ def apartment_to_building():
     print(f'All apartments have an associated building: {apartments.building_id.isin(buildings.id).all()}')
     data = pd.merge(apartments, buildings.set_index('id'), how='left', left_on='building_id', right_index=True)
     data.head()
+
+def import_data():
+    apartments = pd.read_csv('data/apartments_train.csv')
+    buildings = pd.read_csv('data/buildings_train.csv')
+    apartments_test = pd.read_csv('data/apartments_test.csv')
+    buildings_test = pd.read_csv('data/buildings_test.csv')
+    data_test = pd.merge(apartments_test,buildings_test.set_index('id'), how='left', left_on='building_id', right_index=True)
+    data = pd.merge(apartments, buildings.set_index('id'), how='left', left_on='building_id', right_index=True)
+    return data, data_test
+
+print(import_data())
