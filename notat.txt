@@ -12,4 +12,4 @@ Kanskje deale med dataen i to ulike bolker? low-end high-end
 Struktur:
 - gjøre analyse og henting av metadata i en klasse og selve predictionen i en annen klasse
 
-Vi leverer en csv fil med alle resultatene
+Vi leverer en csv fil med alle resultatene.
