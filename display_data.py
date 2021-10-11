@@ -65,5 +65,3 @@ def import_data():
     data_test = pd.merge(apartments_test,buildings_test.set_index('id'), how='left', left_on='building_id', right_index=True)
     data = pd.merge(apartments, buildings.set_index('id'), how='left', left_on='building_id', right_index=True)
     return data, data_test
-
-print(import_data())
