@@ -12,4 +12,14 @@ Kanskje deale med dataen i to ulike bolker? low-end high-end
 Struktur:
 - gjøre analyse og henting av metadata i en klasse og selve predictionen i en annen klasse
 
-Vi leverer en csv fil med alle resultatene.
+Vi leverer en csv fil med alle resultatene
+
+
+
+Ting å gjøre:
+- Fikse filsystemet. Hente dataen fra utenfor den mappen man er info
+- Hvordan deale med plassering - avstand til sentrum pluss postkode
+- Koble avg pris til bygning
+- Hvordan kombinere kategoriske med numerisk
+- Etter å ha fiksa kategorisk og numerisk: med tanke på korrelasjon: finne ut hvordan deale med nan for de 
+- 
