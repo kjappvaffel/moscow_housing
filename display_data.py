@@ -3,6 +3,10 @@ import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
 import seaborn as sns 
+import sys
+
+def _init_(self):
+    pass
 
 def describe_column(meta):
     """
@@ -58,7 +62,6 @@ def apartment_to_building():
     data.head()
 
 def import_data():
-    apartments = pd.read_csv('data/apartments_train.csv')
     buildings = pd.read_csv('data/buildings_train.csv')
     apartments_test = pd.read_csv('data/apartments_test.csv')
     buildings_test = pd.read_csv('data/buildings_test.csv')
