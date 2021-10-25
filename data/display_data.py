@@ -36,14 +36,14 @@ def describe_data(data, meta):
 
 
 def display_apartments():
-    apartments = pd.read_csv('data/apartments_train.csv')
+    apartments = pd.read_csv('../data/apartments_train.csv')
     print(f'Loaded {len(apartments)} apartments')
     with open('data/apartments_meta.json') as f: 
         apartments_meta = json.load(f)
     describe_data(apartments, apartments_meta)
 
 def display_buildings():
-    buildings = pd.read_csv('data/buildings_train.csv')
+    buildings = pd.read_csv('../data/buildings_train.csv')
     print(f'Loaded {len(buildings)} buildings')
     with open('data/buildings_meta.json') as f: 
         buildings_meta = json.load(f)
@@ -51,17 +51,17 @@ def display_buildings():
     describe_data(buildings, buildings_meta)
 
 def apartment_to_building():
-    apartments = pd.read_csv('data/apartments_train.csv')
-    buildings = pd.read_csv('data/buildings_train.csv')
+    apartments = pd.read_csv('../data/apartments_train.csv')
+    buildings = pd.read_csv('../data/buildings_train.csv')
     print(f'All apartments have an associated building: {apartments.building_id.isin(buildings.id).all()}')
     data = pd.merge(apartments, buildings.set_index('id'), how='left', left_on='building_id', right_index=True)
     data.head()
 
 def import_data():
-    apartments = pd.read_csv('data/apartments_train.csv')
-    buildings = pd.read_csv('data/buildings_train.csv')
-    apartments_test = pd.read_csv('data/apartments_test.csv')
-    buildings_test = pd.read_csv('data/buildings_test.csv')
+    apartments = pd.read_csv('../data/apartments_train.csv')
+    buildings = pd.read_csv('../data/buildings_train.csv')
+    apartments_test = pd.read_csv('../data/apartments_test.csv')
+    buildings_test = pd.read_csv('../data/buildings_test.csv')
     data_test = pd.merge(apartments_test,buildings_test.set_index('id'), how='left', left_on='building_id', right_index=True)
     data = pd.merge(apartments, buildings.set_index('id'), how='left', left_on='building_id', right_index=True)
     return data, data_test
