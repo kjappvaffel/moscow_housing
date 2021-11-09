@@ -5,7 +5,7 @@ plt.style.use('ggplot')
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import sys
-sys.path.append('../data')
+#sys.path.append('../data')
 from sklearn import linear_model
 from sklearn.preprocessing import MinMaxScaler
 
@@ -73,24 +73,31 @@ def lr_data_prep(data,data_test):
     data_RR['area_total'] = data['area_total']
     data_test_RR = pd.DataFrame()
     data_test_RR['area_total'] = data_test['area_total']
-
+    print("gunnar")
     data = add_radius(data)
     data_RR['radius'] = data['radius']
     data_test = add_radius(data_test)
     data_test_RR['radius'] = data_test['radius']
+    
+    for column in data_RR:
+        mean = data_RR[column].mean()
+        mean_test = data_test_RR[column].mean()
+        data_RR[column] = data_RR[column].replace(np.NaN, mean)
+        data_test_RR[column] = data_test_RR[column].replace(np.NaN, mean_test)
 
-    data = add_high_up(data)
+    #data = add_high_up(data)
     #data_RR['high_up'] = data['high_up'] # Gjør dårligere
 
 
-    ceiling_mean = data['ceiling'].mean()
-    data['ceiling'] = data['ceiling'].replace(np.NaN, ceiling_mean)
+    #ceiling_mean = data['ceiling'].mean()
+    #data['ceiling'] = data['ceiling'].replace(np.NaN, ceiling_mean)
     #data_RR['ceiling'] = data['ceiling'] ### GJør ikke bedre
 
     scaler = MinMaxScaler() # mapper alt til mellom 0 og 1, default
-    data_RR = scaler.fit_transform(data_RR)
-    data_test_RR = scaler.fit_transform(data_test_RR)
+    data_RR = pd.DataFrame(scaler.fit_transform(data_RR))
+    data_test_RR = pd.DataFrame(scaler.fit_transform(data_test_RR))
     
+    print("styrk")
     return data_RR, data_test_RR
 
 #y_plot = np.log(Y.values)/np.log(15)
